@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Alchimiste | Pub Moderne</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo italic">L'ALCHIMISTE</div>
+        <ul class="nav-links">
+            <li><a href="#menu">Le Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="btn-book" onclick="openModal()">Réserver</button>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="subtitle">Craft Beer & Spiritueux</span>
+            <h1>L'art de la soif.</h1>
+            <p>Un refuge chaleureux pour les esprits libres.</p>
+        </div>
+    </header>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Réserver une table</h2>
+            <form id="bookingForm">
+                <input type="text" placeholder="Nom complet" required>
+                <input type="date" required>
+                <button type="submit">Confirmer</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="home.js"></script>
+</body>
+</html>
