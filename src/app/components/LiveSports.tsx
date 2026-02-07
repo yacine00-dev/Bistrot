@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function LiveSports() {
+export function LiveSports({ onOpenReserve }: { onOpenReserve: () => void }) {
   // Mock data : Facile à mettre à jour pour le patron du bar
   const matches = [
     {
@@ -83,9 +83,12 @@ export function LiveSports() {
 
                 <div className="flex items-center justify-between pt-4 border-t border-[#fafaf9]/5">
                   <span className="text-[#a8a29e] text-sm font-medium">{match.time}</span>
-                  <button className="text-[#d97706] text-xs font-bold uppercase tracking-widest group-hover:underline underline-offset-4">
-                    Réserver
-                  </button>
+                  <button 
+                        onClick={onOpenReserve}
+                        className="text-[#d97706] text-xs font-bold uppercase tracking-widest group-hover:underline underline-offset-4 cursor-pointer"
+                    >
+                        Réserver
+                    </button>
                 </div>
               </div>
             </div>

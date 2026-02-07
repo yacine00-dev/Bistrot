@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export function Navigation() {
+export function Navigation({ onOpenReserve }: { onOpenReserve: () => void }) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -57,12 +57,12 @@ export function Navigation() {
 
         {/* Bouton de réservation adapté au style Brasserie */}
         <div className="flex items-center gap-4">
-          <a 
-            href="#booking" 
-            className="hidden sm:block bg-[#d97706] text-[#0c0a09] px-6 py-2 rounded-md font-bold text-xs uppercase tracking-tighter hover:bg-[#fafaf9] transition-all"
-          >
-            Réserver
-          </a>
+         <button 
+          onClick={onOpenReserve} // On déclenche l'ouverture ici
+          className="hidden sm:block bg-[#d97706] text-[#0c0a09] px-6 py-2 rounded-md font-bold text-xs uppercase tracking-tighter hover:bg-[#fafaf9] transition-all cursor-pointer"
+        >
+          Réserver
+        </button>
           
           {/* Mobile Menu Icon (Simple version for now) */}
           <button className="md:hidden text-[#fafaf9]">

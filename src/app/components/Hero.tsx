@@ -1,6 +1,6 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
-export function Hero() {
+export function Hero({ onOpenReserve }: { onOpenReserve: () => void }) {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background avec une image qui évoque la Place de la Victoire ou une terrasse animée */}
@@ -34,8 +34,11 @@ export function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <button className="px-10 py-4 bg-[#d97706] text-[#fafaf9] font-bold rounded-lg hover:bg-[#b45309] transition-all transform hover:scale-105 shadow-lg uppercase tracking-wider">
-            Réserver une table
+          <button 
+              onClick={onOpenReserve} // On déclenche l'ouverture ici
+              className="px-10 py-4 bg-[#d97706] text-[#fafaf9] font-bold rounded-lg hover:bg-[#b45309] transition-all transform hover:scale-105 shadow-lg uppercase tracking-wider cursor-pointer"
+            >
+              Réserver une table
           </button>
          <a href="#menu" 
           className="inline-block px-10 py-4 border-2 border-[#fafaf9] text-[#fafaf9] font-bold rounded-lg hover:bg-[#fafaf9] hover:text-[#0c0a09] transition-all uppercase tracking-wider text-center"
