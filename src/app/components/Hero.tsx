@@ -37,9 +37,11 @@ export function Hero() {
           <button className="px-10 py-4 bg-[#d97706] text-[#fafaf9] font-bold rounded-lg hover:bg-[#b45309] transition-all transform hover:scale-105 shadow-lg uppercase tracking-wider">
             Réserver une table
           </button>
-          <button className="px-10 py-4 border-2 border-[#fafaf9] text-[#fafaf9] font-bold rounded-lg hover:bg-[#fafaf9] hover:text-[#0c0a09] transition-all uppercase tracking-wider">
-            Voir la carte
-          </button>
+         <a href="#menu" 
+          className="inline-block px-10 py-4 border-2 border-[#fafaf9] text-[#fafaf9] font-bold rounded-lg hover:bg-[#fafaf9] hover:text-[#0c0a09] transition-all uppercase tracking-wider text-center"
+        >
+          Voir la carte
+        </a>
         </div>
 
         {/* Petit indicateur de sport en bas */}

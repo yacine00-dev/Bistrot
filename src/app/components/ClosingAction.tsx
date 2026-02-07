@@ -31,7 +31,7 @@ export function ClosingAction() {
 
           {/* Bouton Itinéraire Google Maps */}
           <a 
-            href="https://goo.gl/maps/votre-lien-maps" 
+            href="https://maps.app.goo.gl/KaEcJ1L4iiHuLkev5" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-3 border-2 border-[#fafaf9] text-[#fafaf9] px-8 py-4 rounded-full font-bold text-lg hover:bg-[#fafaf9] hover:text-[#0c0a09] transition-all"
