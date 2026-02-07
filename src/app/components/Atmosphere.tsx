@@ -5,19 +5,19 @@ export function Atmosphere() {
 
   const atmosphereImages = [
     {
-      url: "../../../img/Exterieur.jpg",
+      url: "../../../public/img/Exterieur.jpg",
       alt: "Bar Counter"
     },
     {
-      url: "../../../img/exterieur2.jpg",
+      url: "../../../public/img/exterieur2.jpg",
       alt: "Whiskey Glass"
     },
     {
-      url: "../../../img/inteieur.jpg",
+      url: "../../../public/img/inteieur.jpg",
       alt: "Craft Cocktail"
     },
     {
-      url: "../../../img/match.jpg",
+      url: "../../../public/img/match.jpg",
       alt: "Restaurant Interior"
     }
   ];
