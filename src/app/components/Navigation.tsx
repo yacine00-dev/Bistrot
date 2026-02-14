@@ -74,22 +74,35 @@ export function Navigation({ onOpenReserve }: { onOpenReserve: () => void }) {
         </div>
       </div>
 
-      {/* Menu Mobile (Overlay) */}
-      <div className={`md:hidden fixed inset-0 bg-[#0c0a09] transition-transform duration-500 ease-in-out ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
-        <div className="flex flex-col items-center justify-center h-full space-y-8 px-6 text-center">
-          <a href="#menu" onClick={closeMobileMenu} className="text-2xl font-black text-[#fafaf9] uppercase tracking-tighter">La Carte</a>
-          <a href="#sports" onClick={closeMobileMenu} className="text-2xl font-black text-[#d97706] uppercase tracking-tighter italic">Direct Sport ⚽</a>
-          <a href="#atmosphere" onClick={closeMobileMenu} className="text-2xl font-black text-[#fafaf9] uppercase tracking-tighter">Le Pub</a>
-          <a href="#contact" onClick={closeMobileMenu} className="text-2xl font-black text-[#fafaf9] uppercase tracking-tighter">Accès</a>
-          
-          <button 
-            onClick={() => { onOpenReserve(); closeMobileMenu(); }}
-            className="w-full bg-[#d97706] text-[#0c0a09] py-5 rounded-xl font-black text-lg uppercase tracking-widest shadow-xl"
-          >
-            Réserver maintenant
-          </button>
-        </div>
-      </div>
+    
+
+<div className={`md:hidden fixed top-0 left-0 w-full h-screen bg-[#0c0a09] z-[40] transition-transform duration-500 ease-in-out ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
+  <div className="flex flex-col items-center justify-center h-full space-y-8 px-6 pt-20">
+    {/* Liens avec un style plus "Bistro / Pub" */}
+    <a href="#menu" onClick={closeMobileMenu} className="text-3xl font-black text-[#fafaf9] uppercase tracking-tighter">
+      La Carte
+    </a>
+    <a href="#sports" onClick={closeMobileMenu} className="text-3xl font-black text-[#d97706] uppercase tracking-tighter italic flex items-center gap-3">
+      Direct Sport <span className="text-xl">⚽</span>
+    </a>
+    <a href="#atmosphere" onClick={closeMobileMenu} className="text-3xl font-black text-[#fafaf9] uppercase tracking-tighter">
+      Le Pub
+    </a>
+    <a href="#contact" onClick={closeMobileMenu} className="text-3xl font-black text-[#fafaf9] uppercase tracking-tighter">
+      Accès
+    </a>
+    
+    {/* Séparateur */}
+    <div className="w-12 h-[2px] bg-[#d97706]/30 my-4"></div>
+
+    <button 
+      onClick={() => { onOpenReserve(); closeMobileMenu(); }}
+      className="w-full bg-[#d97706] text-[#0c0a09] py-5 rounded-xl font-black text-lg uppercase tracking-widest shadow-[0_10px_20px_rgba(217,119,6,0.2)]"
+    >
+      Réserver maintenant
+    </button>
+  </div>
+</div>
     </nav>
   );
 }
