@@ -1,5 +1,4 @@
-import { useState } from 'react'; // Ajoute cet import
-import { ImageWithFallback } from './components/figma/ImageWithFallback';
+import { useState, useEffect } from 'react';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { OurStory } from './components/OurStory';
@@ -7,38 +6,64 @@ import { FeaturedMenu } from './components/FeaturedMenu';
 import { Atmosphere } from './components/Atmosphere';
 import { Footer } from './components/Footer';
 import { LiveSports } from './components/LiveSports';
+import { AdminSports } from './components/AdminSports';
 import { ClosingAction } from './components/ClosingAction';
 import { ReservationModal } from './components/Reservation';
 
 export default function App() {
-  // 1. Création de l'état global pour la modale
+  // 1. États pour la modale et la gestion du match sélectionné
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedMatch, setSelectedMatch] = useState<any>(null); // Stocke le match cliqué
+  const [isAdmin, setIsAdmin] = useState(window.location.hash === '#admin');
 
-  // 2. Fonction pour ouvrir la modale
-  const openModal = () => setIsModalOpen(true);
-  // 3. Fonction pour fermer la modale
-  const closeModal = () => setIsModalOpen(false);
+  // 2. Fonctions pour la modale
+  // Cette fonction est maintenant capable de recevoir un match en argument
+  const openModal = (match: any = null) => {
+    setSelectedMatch(match); // On enregistre le match (ou null si c'est une résa classique)
+    setIsModalOpen(true);
+  };
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedMatch(null); // On reset quand on ferme
+  };
+
+  // 3. Détection automatique du mode Admin via l'URL (#admin)
+  useEffect(() => {
+    const handleHash = () => setIsAdmin(window.location.hash === '#admin');
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
+  // 4. AFFICHAGE CONDITIONNEL (Mode Admin)
+  if (isAdmin) {
+    return <AdminSports />;
+  }
+
+  // 5. AFFICHAGE SITE PUBLIC
   return (
-    <div className="min-h-screen bg-background">
-      {/* On passe la fonction openModal aux composants qui ont un bouton */}
-      <Navigation onOpenReserve={openModal} />
-      <Hero onOpenReserve={openModal} />
+    <div className="min-h-screen bg-[#0c0a09]">
+      {/* On passe openModal aux composants. Hero et Nav ouvrent une résa vide */}
+      <Navigation onOpenReserve={() => openModal()} />
+      <Hero onOpenReserve={() => openModal()} />
       
       <OurStory />
       <FeaturedMenu />
       
-      {/* Plus besoin de ReservationModal ici au milieu car elle est "fixed" */}
+      {/* LiveSports passe le 'match' spécifique à openModal lors du clic */}
+      <LiveSports onOpenReserve={(match) => openModal(match)} />
       
-      <LiveSports onOpenReserve={openModal} />
       <Atmosphere />
       <Footer />
       
-      {/* On peut aussi l'ajouter ici si le bouton de fin existe */}
-      <ClosingAction onOpenReserve={openModal} />
+      <ClosingAction onOpenReserve={() => openModal()} />
 
-      {/* 4. La modale unique, pilotée par l'état d'App.tsx */}
-      <ReservationModal isOpen={isModalOpen} onClose={closeModal} />
+      {/* La modale reçoit l'état d'ouverture ET les données du match sélectionné */}
+      <ReservationModal 
+        isOpen={isModalOpen} 
+        onClose={closeModal} 
+        selectedMatch={selectedMatch} 
+      />
     </div>
   );
 }

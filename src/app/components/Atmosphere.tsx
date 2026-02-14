@@ -5,7 +5,7 @@ export function Atmosphere() {
 
   const atmosphereImages = [
     {
-      url: "../../../public/img/Exterieur.jpg",
+      url: "../../../public/img/match.jpg",
       alt: "Bar Counter"
     },
     {
@@ -17,7 +17,7 @@ export function Atmosphere() {
       alt: "Craft Cocktail"
     },
     {
-      url: "../../../public/img/match.jpg",
+      url: "../../../public/img/repas.jpg",
       alt: "Restaurant Interior"
     }
   ];
