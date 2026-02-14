@@ -5,7 +5,7 @@ export function Atmosphere() {
 
   const atmosphereImages = [
     {
-      url: "../../../public/img/match.jpg",
+      url: "../../../img/PubStAubin_18.jpg",
       alt: "Bar Counter"
     },
     {
