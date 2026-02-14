@@ -129,7 +129,7 @@ export function FeaturedMenu() {
         {/* CTA pour le menu complet */}
         <div className="text-center mt-20">
           <a 
-            href="../../../public/img/menu/menu9.pdf" 
+            href="../../../img/menu/menu9.pdf" 
             download="Menu_Saint_Aubin.pdf" 
             className="inline-block px-8 py-4 border-2 border-[#d97706] text-[#d97706] font-bold rounded-lg hover:bg-[#d97706] hover:text-[#0c0a09] transition-all uppercase tracking-widest text-sm"
           >
